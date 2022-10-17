@@ -105,7 +105,38 @@ function processSub(i, s, subStr) { // 当前来到第i个字符，判断
 
 }
 
-printAllSubsquences('abcde');
+// printAllSubsquences('abcde');
 
 
 // 对于字符串'abcde'的子序列，可以先得到'abcd'的全部子序列，'abcde'的全部子序列就是'abcd'的全部子序列 并 'abcd'的全部子序列中每一个元素加上字符'e'
+
+
+
+/**
+ * 给定两个长度都为N的数组weights和values，weights[i]和values[i]分别代表i号物品的重量和价值。
+ * 给定一个正数bag，表示一个载重bag的袋子，你装的物品不能超过这个重量。返回你能装下最多的价值是多少？
+ */
+/**
+ * 
+ * @param {number[]} weights 
+ * @param {number[]} values 
+ * @param {number} bag 
+ */
+function getMaxWeight(weights, values, bag) {
+    console.log(processBag(0, 0, 0));
+    function processBag(i, currentWeight, currentValue) {
+        if (currentWeight > bag) {
+            return 0;
+        } else if (currentWeight === bag || i === values.length) {
+            return currentValue;
+        }
+
+        return Math.max(
+            processBag(i + 1, currentWeight + weights[i], currentValue + values[i]),
+            processBag(i + 1, currentWeight, currentValue)
+        )
+    }
+
+}
+
+getMaxWeight([3, 2, 4, 7], [5, 6, 3, 19], 11);
