@@ -5,7 +5,7 @@
  * aim = 10 ,要组成aim ,有几种方式？
  */
 /**
- * 这个问题等价于，找到arr的某个子序列，子序列之和为aim 同时子序列长度尽可能小
+ * 这个问题等价于，找到arr的某个子序列，子序列之和为aim
  */
 
 function minimalCoin(arr,aim) {
@@ -27,3 +27,4 @@ function minimalCoin(arr,aim) {
 }
 
 minimalCoin([2, 7, 3, 5, 3], 10);
+
