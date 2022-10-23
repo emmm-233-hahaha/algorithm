@@ -23,8 +23,9 @@ arr=[1,100,2]。
  * @param {Array(number)} arr 
  */
 function cardGame(arr) {
-    if (arr.length === 0) return0;
-    return Math.max(first(arr, 0, arr.length),second(arr, 0, arr.length));
+    if (arr.length === 0) return 0;
+    return Math.max(first(arr, 0, arr.length-1), second(arr, 0, arr.length-1));
+
     function first(arr, L, R) { // 先手函数
         if (L === R) {
             return arr[L];
@@ -45,4 +46,4 @@ function cardGame(arr) {
     }
 }
 
-console.log(cardGame([1, 2, 100, 4]));
+console.log(cardGame([1, 100, 2]));
