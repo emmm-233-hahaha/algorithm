@@ -16,9 +16,9 @@
 //  如果i 位置 >=3: 那么i位置转为对应字母，i无法结合下一位；递归i +1 即可
 
 function transNum(str) {
-    console.log(process(str, 0));
+    console.log(process(0));
 
-    function process(str, i) {
+    function process(i) {
         if (i === str.length) {
             return 1;
         }
@@ -26,18 +26,18 @@ function transNum(str) {
             return 0;
         }
         if ('1' === str.charAt(i)) {
-            let res = process(str, i + 1);
-            if (i + 1 < str.length) res += process(str, i + 2);
+            let res = process(i + 1);
+            if (i + 1 < str.length) res += process(i + 2);
             return res;
         }
 
         if ('2' === str.charAt(i)) {
-            let res = process(str, i + 1);
-            if (i + 1 < str.length && str.charAt(i + 1).charCodeAt() < '6'.charCodeAt()) res += process(str, i + 2);
+            let res = process(i + 1);
+            if (i + 1 < str.length && str.charAt(i + 1).charCodeAt() < '6'.charCodeAt()) res += process(i + 2);
             return res;
         }
 
-        return process(str, i + 1);
+        return process(i + 1);
 
     }
 }
